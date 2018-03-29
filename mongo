@@ -1,0 +1,35 @@
+use meme
+
+db.br_memes.insertOne({
+"name": "Eita Giovana",
+"year": 2015
+});
+
+db.br_memes.insertOne({
+"name": "Tio Phil",
+"year": 2014,
+"link": "http://desciclopedia.org/wiki/Vou_fazer_uma_sopa_pra_nois"
+});
+
+db.br_memes.insertMany([
+{
+"name": "Carioca Girls",
+"year": 2013,
+"link": "https://youtu.be/neO9ngOzwF4"
+},
+{
+"name": "Cheiramento de gatinhos",
+"link": "http://desciclopedia.org/wiki/Cheiramento_de_gatinhos"
+}
+]);
+
+var c = db.br_memes.find().pretty();
+var doc = function() { return c.Next ? c.Next : null;}
+
+c.objsLeftInBatch();
+
+db.br_memes.find({
+name: "Carioca Girls"
+	
+}, { "year": 2013}).pretty();
+
